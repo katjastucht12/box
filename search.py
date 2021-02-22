@@ -32,9 +32,9 @@ def search(start, end, G):
     :return: list of tuples containing each leg of the route, string containing a summary
     of the route, total amount of time needed
     """
-    if start not in nodes:
+    if start not in list(G.nodes):
         raise NodeDoesNotExist(message=f' {start} does not exist')
-    elif end not in nodes:
+    elif end not in list(G.nodes):
         raise NodeDoesNotExist(message=f' {end} does not exist')
     else:
         logging.info(f'finding path from {start} to {end}')
