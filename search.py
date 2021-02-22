@@ -18,11 +18,20 @@ nodes = ['DUB', 'LHR', 'CDG', 'BOS', 'BKK', 'ORD', 'LAS',
 
 
 class NodeDoesNotExist(Exception):
+
     def __init__(self, message="Node Does not exist"):
         super().__init__(message)
 
 
 def search(start, end, G):
+    """
+    Finds the shortest path between start and end in graph G
+    :param start: Starting point
+    :param end: ending point
+    :param G: Graph on which to perform search
+    :return: list of tuples containing each leg of the route, string containing a summary
+    of the route, total amount of time needed
+    """
     if start not in nodes:
         raise NodeDoesNotExist(message=f' {start} does not exist')
     elif end not in nodes:
